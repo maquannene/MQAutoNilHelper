@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		D41A74501B9BEB33005B0320 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744B1B9BEB33005B0320 /* main.m */; };
 		D41A74511B9BEB33005B0320 /* MMTestObjA.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744D1B9BEB33005B0320 /* MMTestObjA.m */; };
-		D41A74521B9BEB33005B0320 /* MMAutoNilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */; };
-		D41A74551B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */; };
+		D4C7B8E21B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C7B8E11B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,10 +29,8 @@
 		D41A744B1B9BEB33005B0320 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D41A744C1B9BEB33005B0320 /* MMTestObjA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTestObjA.h; sourceTree = "<group>"; };
 		D41A744D1B9BEB33005B0320 /* MMTestObjA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTestObjA.m; sourceTree = "<group>"; };
-		D41A744E1B9BEB33005B0320 /* MMAutoNilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAutoNilHelper.h; sourceTree = "<group>"; };
-		D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAutoNilHelper.m; sourceTree = "<group>"; };
-		D41A74531B9BEC73005B0320 /* NSObject+MQAutoNilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MQAutoNilHelper.h"; sourceTree = "<group>"; };
-		D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MQAutoNilHelper.m"; sourceTree = "<group>"; };
+		D4C7B8E01B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MMAutoNilHelper.h"; sourceTree = "<group>"; };
+		D4C7B8E11B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MMAutoNilHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +66,8 @@
 				D41A744B1B9BEB33005B0320 /* main.m */,
 				D41A744C1B9BEB33005B0320 /* MMTestObjA.h */,
 				D41A744D1B9BEB33005B0320 /* MMTestObjA.m */,
-				D41A744E1B9BEB33005B0320 /* MMAutoNilHelper.h */,
-				D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */,
-				D41A74531B9BEC73005B0320 /* NSObject+MQAutoNilHelper.h */,
-				D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */,
+				D4C7B8E01B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.h */,
+				D4C7B8E11B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.m */,
 			);
 			path = MQAutoNilHelper;
 			sourceTree = "<group>";
@@ -134,8 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D41A74501B9BEB33005B0320 /* main.m in Sources */,
-				D41A74521B9BEB33005B0320 /* MMAutoNilHelper.m in Sources */,
-				D41A74551B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m in Sources */,
+				D4C7B8E21B9C2B3A0061D7BF /* NSObject+MMAutoNilHelper.m in Sources */,
 				D41A74511B9BEB33005B0320 /* MMTestObjA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
