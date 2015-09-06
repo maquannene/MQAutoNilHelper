@@ -82,17 +82,17 @@ x = nil;                \
 
 此时如果我们在碰到想要bSelf自动置为nil，就只用写一句话`MMMrcWeak(bSelf)`即可：
 ```objc
-    __block typeof(self) bSelf = self;
-    MMMrcWeak(bSelf);   // 声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，实现如果当bSelf释放的时候，自动设为nil
-    //  进行网络请求
-    [self qurey:^{
-        if (bSelf) {
-            NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
-        }
-        else {
-            NSLog(@"bSelf 不存在");
-        }
-    }];
+__block typeof(self) bSelf = self;
+MMMrcWeak(bSelf);   // 声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，实现如果当bSelf释放的时候，自动设为nil
+//  进行网络请求
+[self qurey:^{
+    if (bSelf) {
+    NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
+    }
+    else {
+        NSLog(@"bSelf 不存在");
+    }
+}];
 ```
 
 最后，[这里是Demo连接](https://github.com/wuhanness/MQAutoNilHelper);
