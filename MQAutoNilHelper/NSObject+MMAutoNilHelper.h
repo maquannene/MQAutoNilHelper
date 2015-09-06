@@ -20,9 +20,11 @@ x = nil;                \
 #endif
 #endif
 
+typedef void(^MMAutoNilBlock)(void);
+
 @interface MMAutoNilHelper : NSObject
 
-@property (nonatomic, copy) void(^autoNilBlock)(void);
+@property (nonatomic, copy) MMAutoNilBlock autoNilBlock;
 
 @end
 
