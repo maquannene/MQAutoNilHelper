@@ -87,7 +87,7 @@ MMMrcWeak(bSelf);   // 声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，�
 //  进行网络请求
 [self qurey:^{
     if (bSelf) {
-    NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
+        NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
     }
     else {
         NSLog(@"bSelf 不存在");
