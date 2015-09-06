@@ -9,6 +9,15 @@
 #import "MMTestObjA.h"
 #import "MMAutoNilHelper.h"
 #import <objc/runtime.h>
+#import "NSObject+MQAutoNilHelper.h"
+
+#define MQMrcWeak(x)                                                                            \
+MMAutoNilHelper *autoNilHelper = [[MMAutoNilHelper alloc] init];                                \
+autoNilHelper.autoNilBlock = ^{                                                                 \
+    x = nil;                                                                                    \
+};                                                                                              \
+objc_setAssociatedObject(self, "MQMrcWeak", autoNilHelper, OBJC_ASSOCIATION_RETAIN);            \
+[autoNilHelper release];                                                                        \
 
 @implementation MMTestObjA
 
@@ -18,15 +27,7 @@
 
 - (void)testMethod {
     __block typeof(self) bSelf = self;
-    //  创建autoNilHelper，autoNilBlock中将bSelf = nil
-    MMAutoNilHelper *autoNilHelper = [[MMAutoNilHelper alloc] init];
-    autoNilHelper.autoNilBlock = ^{
-        bSelf = nil;    //  如果没有这句，当self release时，网络请求回调中的bSelf就为野指针，造成崩溃。
-    };
-    //  关联自动置为nil的nilHelper对象，当self release时，释放autoNilHelper，执行autoNilBlock，设置bSelf为nil
-    objc_setAssociatedObject(self, @selector(testMethod), autoNilHelper, OBJC_ASSOCIATION_RETAIN);
-    [autoNilHelper release];
-
+    MQMrcWeak(bSelf);   //  类似arc 下weak，如果回调时self被释放，那么bSelf自动置为nil
     //  进行网络请求
     [self qurey:^{
         if (bSelf) {

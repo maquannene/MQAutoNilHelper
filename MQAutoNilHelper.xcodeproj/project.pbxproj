@@ -10,6 +10,7 @@
 		D41A74501B9BEB33005B0320 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744B1B9BEB33005B0320 /* main.m */; };
 		D41A74511B9BEB33005B0320 /* MMTestObjA.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744D1B9BEB33005B0320 /* MMTestObjA.m */; };
 		D41A74521B9BEB33005B0320 /* MMAutoNilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */; };
+		D41A74551B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		D41A744D1B9BEB33005B0320 /* MMTestObjA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTestObjA.m; sourceTree = "<group>"; };
 		D41A744E1B9BEB33005B0320 /* MMAutoNilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAutoNilHelper.h; sourceTree = "<group>"; };
 		D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAutoNilHelper.m; sourceTree = "<group>"; };
+		D41A74531B9BEC73005B0320 /* NSObject+MQAutoNilHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MQAutoNilHelper.h"; sourceTree = "<group>"; };
+		D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MQAutoNilHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				D41A744D1B9BEB33005B0320 /* MMTestObjA.m */,
 				D41A744E1B9BEB33005B0320 /* MMAutoNilHelper.h */,
 				D41A744F1B9BEB33005B0320 /* MMAutoNilHelper.m */,
+				D41A74531B9BEC73005B0320 /* NSObject+MQAutoNilHelper.h */,
+				D41A74541B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m */,
 			);
 			path = MQAutoNilHelper;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				D41A74501B9BEB33005B0320 /* main.m in Sources */,
 				D41A74521B9BEB33005B0320 /* MMAutoNilHelper.m in Sources */,
+				D41A74551B9BEC73005B0320 /* NSObject+MQAutoNilHelper.m in Sources */,
 				D41A74511B9BEB33005B0320 /* MMTestObjA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +255,7 @@
 				D41A744A1B9BEB12005B0320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
