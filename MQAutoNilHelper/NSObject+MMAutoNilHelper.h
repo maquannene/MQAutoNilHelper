@@ -8,19 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
-#ifndef MMMrcWeak
+#ifndef MMMrcWeakObserver
 #if __has_feature(objc_arc)
-#define MMMrcWeak(x) (x)
+#define MMMrcWeakObserver(x) (x)
 #else
-#define MMMrcWeak(x)    \
-[x MMMrcWeak:^{         \
-x = nil;                \
-}];                     \
+#define MMMrcWeakObserver(x)                                                        \
+[x MMMrcWeak:^MMAutoNilBlock(MMAutoNilHelper *autoNilHelper) {                      \
+    objc_setAssociatedObject(x, x, autoNilHelper, OBJC_ASSOCIATION_RETAIN);         \
+    return [[^{                                                                     \
+        x = nil;                                                                    \
+    } copy] autorelease];                                                           \
+}];                                                                                 \
 
 #endif
 #endif
+
+#ifndef MMMrcWeakObserverCancel
+#if __has_feature(objc_arc)
+#define MMMrcWeakObserverCancel(x) (x)
+#else
+#define MMMrcWeakObserverCancel(x)                                                  \
+objc_setAssociatedObject(x, x, nil, OBJC_ASSOCIATION_RETAIN);                       \
+
+#endif
+#endif
+
+@class MMAutoNilHelper;
 
 typedef void(^MMAutoNilBlock)(void);
+typedef MMAutoNilBlock(^MMAutoNilConfigureBlock)(MMAutoNilHelper *);
 
 @interface MMAutoNilHelper : NSObject
 
@@ -30,6 +46,6 @@ typedef void(^MMAutoNilBlock)(void);
 
 @interface NSObject (MMAutoNilHelper)
 
-- (void)MMMrcWeak:(void(^)(void))autoNilBlock;
+- (void)MMMrcWeak:(MMAutoNilConfigureBlock)autoNilConfigureBlock;
 
 @end

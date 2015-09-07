@@ -23,10 +23,11 @@
 
 @implementation NSObject (MMAutoNilHelper)
 
-- (void)MMMrcWeak:(void (^)(void))autoNilBlock {
+- (void)MMMrcWeak:(MMAutoNilConfigureBlock)autoNilConfigureBlock {
     MMAutoNilHelper *autoNilHelper = [[MMAutoNilHelper alloc] init];
-    autoNilHelper.autoNilBlock = autoNilBlock;
-    objc_setAssociatedObject(self, &autoNilHelper, autoNilHelper, OBJC_ASSOCIATION_RETAIN);
+    if (autoNilConfigureBlock) {
+        autoNilHelper.autoNilBlock = autoNilConfigureBlock(autoNilHelper);
+    }
     [autoNilHelper release];
 }
 
