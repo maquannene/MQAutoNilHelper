@@ -26,7 +26,7 @@
 - (void)MMMrcWeak:(MMAutoNilConfigureBlock)autoNilConfigureBlock {
     MMAutoNilHelper *autoNilHelper = [[MMAutoNilHelper alloc] init];
     if (autoNilConfigureBlock) {
-        autoNilHelper.autoNilBlock = autoNilConfigureBlock(autoNilHelper);
+        autoNilConfigureBlock(autoNilHelper);
     }
     [autoNilHelper release];
 }
