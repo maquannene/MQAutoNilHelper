@@ -101,7 +101,5 @@ MMMrcWeak(bSelf);   // 声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，�
 
 
 
-
-
-
-
+目前增加了一个新的分支branch1.1，尝试去掉autoNilHelper。但是关联的 void *key还是无法做到唯一。
+还在继续探索。  
