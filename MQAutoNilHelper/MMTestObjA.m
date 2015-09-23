@@ -18,12 +18,12 @@
 
 - (void)testMethod {
     __block typeof(self) bSelf = self;
-    MMMrcWeakObserver(bSelf);                       //  声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，实现监听，如果当bSelf释放的时候，自动设为nil
+    MMMrcWeakObserver(bSelf);                                                   //  声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，实现监听，如果当bSelf释放的时候，自动设为nil
     //  进行网络请求
     [self qurey:^{
         if (bSelf) {
             NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
-            MMMrcWeakObserverCancel(bSelf);        //   不再监听时候，需要取消监听
+            MMMrcWeakObserverCancel(bSelf);                                     //   不再需要监听时候，需要取消监听
         }
         else {
             NSLog(@"bSelf 不存在");

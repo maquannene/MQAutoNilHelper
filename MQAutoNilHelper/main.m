@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, World!");
         MMTestObjA *objcA = [[MMTestObjA alloc] init];
         [objcA testMethod];
-        [objcA release];
+//        [objcA release];
         [[NSRunLoop currentRunLoop] run];
     }
     return 0;

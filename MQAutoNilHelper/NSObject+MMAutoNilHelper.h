@@ -13,8 +13,9 @@
 #define MMMrcWeakObserver(x) (x)
 #else
 #define MMMrcWeakObserver(x)                                                        \
+void * ptr = &x;                                                                    \
 [x MMMrcWeak:^(MMAutoNilHelper *autoNilHelper) {                                    \
-    objc_setAssociatedObject(x, x, autoNilHelper, OBJC_ASSOCIATION_RETAIN);         \
+    objc_setAssociatedObject(x, ptr, autoNilHelper, OBJC_ASSOCIATION_RETAIN);       \
     autoNilHelper.autoNilBlock = ^{                                                 \
         bSelf = nil;                                                                \
     };                                                                              \
@@ -28,7 +29,7 @@
 #define MMMrcWeakObserverCancel(x) (x)
 #else
 #define MMMrcWeakObserverCancel(x)                                                  \
-objc_setAssociatedObject(x, x, nil, OBJC_ASSOCIATION_RETAIN);                       \
+objc_setAssociatedObject(x, ptr, nil, OBJC_ASSOCIATION_RETAIN);                     \
 
 #endif
 #endif
@@ -41,6 +42,7 @@ typedef void(^MMAutoNilConfigureBlock)(MMAutoNilHelper *);
 @interface MMAutoNilHelper : NSObject
 
 @property (nonatomic, copy) MMAutoNilBlock autoNilBlock;
+@property (nonatomic, assign) void *ptr;
 
 @end
 
