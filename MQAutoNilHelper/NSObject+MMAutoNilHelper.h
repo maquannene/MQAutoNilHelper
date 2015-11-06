@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^VoidBlock)(void);
+
+static inline void cleanUpBlock(__strong VoidBlock *block) {
+    (*block)();
+}
+
+#define onExit \
+__strong VoidBlock block __attribute__((cleanup(cleanUpBlock), unused)) = ^
+
 #ifndef MMMrcWeakObserver
 #if __has_feature(objc_arc)
 #define MMMrcWeakObserver(x) (x)
@@ -29,7 +38,9 @@ void * ptr = &x;                                                                
 #define MMMrcWeakObserverCancel(x) (x)
 #else
 #define MMMrcWeakObserverCancel(x)                                                  \
-objc_setAssociatedObject(x, ptr, nil, OBJC_ASSOCIATION_RETAIN);                     \
+onExit {                                                                            \
+    objc_setAssociatedObject(x, ptr, nil, OBJC_ASSOCIATION_RETAIN);                 \
+};                                                                                  \
 
 #endif
 #endif

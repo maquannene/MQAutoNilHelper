@@ -10,6 +10,9 @@
 #import <objc/runtime.h>
 #import "NSObject+MMAutoNilHelper.h"
 
+
+
+
 @implementation MMTestObjA
 
 - (void)dealloc {
@@ -21,9 +24,9 @@
     MMMrcWeakObserver(bSelf);                                                   //  声明:MMMrcWeak 将bSelf 变成类似 arc下的weak，实现监听，如果当bSelf释放的时候，自动设为nil
     //  进行网络请求
     [self qurey:^{
+        MMMrcWeakObserverCancel(bSelf);                                         //   不再需要监听时候，需要取消监听
         if (bSelf) {
             NSLog(@"bSelf = %@ 这个指针还存在（没有被置为nil，可能是野指针）", bSelf);
-            MMMrcWeakObserverCancel(bSelf);                                     //   不再需要监听时候，需要取消监听
         }
         else {
             NSLog(@"bSelf 不存在");
